@@ -26,6 +26,22 @@ namespace BroBot.Modules
         }
 
         /// <summary>
+        /// Sends a BroBot help message.
+        /// TODO: Implement help text.
+        /// </summary>
+        /// <returns></returns>
+        [Command("help")]
+        public async Task Help()
+        {
+            var embed = new EmbedBuilder();
+            embed.WithTitle("BroBot Help");
+            embed.WithDescription(Utilities.GetFormattedAlert("HELP"));
+            embed.WithColor(new Color(0, 255, 0));
+
+            await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        /// <summary>
         /// Echoes input message using >echo {message}.
         /// Embeds in a green embed.
         /// </summary>

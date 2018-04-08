@@ -11,7 +11,7 @@ namespace BroBot
 {
     class Utilities
     {
-        private static Dictionary<string, string> alerts;
+        private static readonly Dictionary<string, string> _alerts;
 
         /// <summary>
         /// Deserializes alerts from alerts.json
@@ -20,7 +20,7 @@ namespace BroBot
         {
             string json = File.ReadAllText("SystemLang/alerts.json");
             var data = JsonConvert.DeserializeObject<dynamic>(json);
-            alerts = data.ToObject<Dictionary<string, string>>();
+            _alerts = data.ToObject<Dictionary<string, string>>();
         }
 
         /// <summary>
@@ -30,9 +30,9 @@ namespace BroBot
         /// <returns>alert string</returns>
         public static string GetAlert(string key)
         {
-            if (alerts.ContainsKey(key))
+            if (_alerts.ContainsKey(key))
             {
-                return alerts[key];
+                return _alerts[key];
             }
             else
             {
@@ -49,9 +49,9 @@ namespace BroBot
         /// <returns>alert string</returns>
         public static string GetFormattedAlert(string key, params object[] parameters)
         {
-            if (alerts.ContainsKey(key))
+            if (_alerts.ContainsKey(key))
             {
-                return String.Format(alerts[key], parameters);
+                return String.Format(_alerts[key], parameters);
             }
             else
             {
