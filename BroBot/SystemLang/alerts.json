@@ -1,0 +1,5 @@
+{
+  "HELLO":  "Hello! I'm BroBot. To learn how I work type `{0}help`.",
+  "ECHO_MESSAGE_&username": "Message by {0}",
+  "PICK_MESSAGE_&username": "Choice by {0}"
+}
