@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-
-namespace BroBot
+namespace BroBot.Utils
 {
     class Utilities
     {
@@ -18,7 +14,7 @@ namespace BroBot
         /// </summary>
         static Utilities()
         {
-            string json = File.ReadAllText("SystemLang/alerts.json");
+            string json = File.ReadAllText(Constants.AlertsPath);
             var data = JsonConvert.DeserializeObject<dynamic>(json);
             _alerts = data.ToObject<Dictionary<string, string>>();
         }
