@@ -9,6 +9,9 @@ using Discord.Commands;
 
 namespace BroBot.Modules
 {
+    /// <summary>
+    /// A set of basic commands for the BroBot.
+    /// </summary>
     public class Misc : ModuleBase<SocketCommandContext>
     {
         /// <summary>
