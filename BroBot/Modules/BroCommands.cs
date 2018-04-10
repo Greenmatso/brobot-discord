@@ -16,7 +16,7 @@ namespace BroBot.Modules
     {
         /// <summary>
         /// Sends a BroBot introduction message.
-        /// TODO: Implement JSON parser for BroCommands
+        /// TODO: Implement custom posessed text.
         /// </summary>
         /// <returns></returns>
         [Command("owner")]
@@ -24,7 +24,7 @@ namespace BroBot.Modules
         {
             var embed = new EmbedBuilder();
             embed.WithTitle("Hail to the King, Baby.");
-            //embed.WithDescription(Utilities.GetFormattedAlert("HELLO", Config.bot.cmdPrefix));
+            embed.WithDescription(Utilities.GetFormattedBroCommand("OWNER"));
             embed.WithColor(new Color(0, 255, 0));
 
             await Context.Channel.SendMessageAsync("", false, embed);
@@ -32,7 +32,6 @@ namespace BroBot.Modules
 
         /// <summary>
         /// Sends a BroBot introduction message.
-        /// TODO: Implement JSON parser for BroCommands
         /// </summary>
         /// <returns></returns>
         [Command("betterdiscord")]
@@ -40,7 +39,23 @@ namespace BroBot.Modules
         {
             var embed = new EmbedBuilder();
             embed.WithTitle("Check out Better Discord!");
-            //embed.WithDescription(Utilities.GetFormattedAlert("HELLO", Config.bot.cmdPrefix));
+            embed.WithDescription(Utilities.GetFormattedBroCommand("BETTER_DISCORD"));
+            embed.WithColor(new Color(0, 255, 0));
+            embed.WithImageUrl("https://cdn.dribbble.com/users/744913/screenshots/2855627/betterdiscord2_1x.png");
+
+            await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        /// <summary>
+        /// Sends a BroBot information message.
+        /// </summary>
+        /// <returns></returns>
+        [Command("brobot")]
+        public async Task BroBotInformation()
+        {
+            var embed = new EmbedBuilder();
+            embed.WithTitle("BroBot");
+            embed.WithDescription(Utilities.GetFormattedBroCommand("BROBOT"));
             embed.WithColor(new Color(0, 255, 0));
 
             await Context.Channel.SendMessageAsync("", false, embed);
