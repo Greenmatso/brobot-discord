@@ -9,6 +9,7 @@ namespace BroBot.Utils
     {
         private static Dictionary<string, string> _alerts;
         private static Dictionary<string, string> _broCommands;
+        private static Dictionary<string, string> _userCommands;
 
         /// <summary>
         /// Deserializes alerts from alerts.json
@@ -17,6 +18,7 @@ namespace BroBot.Utils
         {
             GetAlertsFromJson();
             GetBroCommandsFromJson();
+            GetUserCommandsFromJson();
         }
 
         /// <summary>
@@ -46,6 +48,23 @@ namespace BroBot.Utils
             if (_broCommands.ContainsKey(key))
             {
                 return _broCommands[key];
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a user command from user-commands.json
+        /// </summary>
+        /// <param name="key">Key of command to retrieve</param>
+        /// <returns>command string</returns>
+        public static string GetUserCommand(string key)
+        {
+            if (_userCommands.ContainsKey(key))
+            {
+                return _userCommands[key];
             }
             else
             {
@@ -113,6 +132,36 @@ namespace BroBot.Utils
             return GetFormattedBroCommand(key, new object[] { parameter });
         }
 
+        /// <summary>
+        /// Returns a command from the user-commands.json formatted with an array of parameters
+        /// (String format abstraction)
+        /// </summary>
+        /// <param name="key">Key of command to retrieve</param>
+        /// <param name="parameters">parameters to format the string with</param>
+        /// <returns>command string</returns>
+        public static string GetFormattedUserCommand(string key, params object[] parameters)
+        {
+            if (_userCommands.ContainsKey(key))
+            {
+                return String.Format(_userCommands[key], parameters);
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// Returns a command from the user-commands.json formatted with a parameter
+        /// </summary>
+        /// <param name="key">Key of command to retrieve</param>
+        /// <param name="parameter">parameter to format the string with</param>
+        /// <returns>command string</returns>
+        public static string GetFormattedUserCommand(string key, object parameter)
+        {
+            return GetFormattedUserCommand(key, new object[] { parameter });
+        }
+
 
 
         #region Private methods
@@ -126,9 +175,16 @@ namespace BroBot.Utils
 
         private static void GetBroCommandsFromJson()
         {
-            string json = File.ReadAllText("SystemLang/bro-commands.json");
+            string json = File.ReadAllText(Constants.BroCommandsPath);
             var data = JsonConvert.DeserializeObject<dynamic>(json);
             _broCommands = data.ToObject<Dictionary<string, string>>();
+        }
+
+        private static void GetUserCommandsFromJson()
+        {
+            string json = File.ReadAllText(Constants.UserCommandsPath);
+            var data = JsonConvert.DeserializeObject<dynamic>(json);
+            _userCommands = data.ToObject<Dictionary<string, string>>();
         }
 
         #endregion 
