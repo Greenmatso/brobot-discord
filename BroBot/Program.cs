@@ -16,14 +16,13 @@ namespace BroBot
         /// <summary>
         /// Starts bot by calling StartAsync
         /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args)
             => new Program().StartAsync().GetAwaiter().GetResult();
 
         /// <summary>
         /// Starts Bot Asyncronously
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Task</returns>
         public async Task StartAsync()
         {
             if (String.IsNullOrEmpty(Config.bot.token))
@@ -47,7 +46,7 @@ namespace BroBot
         /// Writes a log message
         /// </summary>
         /// <param name="message">The log message</param>
-        /// <returns></returns>
+        /// <returns>Task</returns>
         private async Task Log(LogMessage message)
         {
             Console.WriteLine(message);

@@ -134,6 +134,7 @@
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="DataStorage.cs" />
     <Compile Include="Modules\BroCommands.cs" />
     <Compile Include="Modules\Misc.cs" />
     <Compile Include="Program.cs" />
@@ -150,6 +151,12 @@
     <None Include="SystemLang\bro-commands.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Images\brobot_jackinator.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
