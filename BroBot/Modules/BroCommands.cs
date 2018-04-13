@@ -88,5 +88,11 @@ namespace BroBot.Modules
 
             await Context.Channel.SendMessageAsync(herePing, false, embed);
         }
+
+        [Command("fuckthemods")]
+        public async Task ModGif()
+        {
+            await Context.Channel.SendMessageAsync("https://i.imgur.com/tHAKqha.gifv");
+        }
     }
 }

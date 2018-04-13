@@ -42,7 +42,19 @@ namespace BroBot.Modules
             embed.WithDescription(Utilities.GetFormattedAlert("HELP"));
             embed.WithColor(new Color(0, 255, 0));
 
+            var embedMisc = new EmbedBuilder();
+            embedMisc.WithTitle("General Commands");
+            embedMisc.WithDescription(Utilities.GetFormattedAlert("HELP_MISC"));
+            embedMisc.WithColor(new Color(0, 255, 0));
+
+            var embedBro = new EmbedBuilder();
+            embedBro.WithTitle("BroBot Help");
+            embedBro.WithDescription(Utilities.GetFormattedAlert("HELP_BRO"));
+            embedBro.WithColor(new Color(0, 255, 0));
+
             await Context.Channel.SendMessageAsync("", false, embed);
+            await Context.Channel.SendMessageAsync("", false, embedMisc);
+            await Context.Channel.SendMessageAsync("", false, embedBro);
         }
 
         /// <summary>

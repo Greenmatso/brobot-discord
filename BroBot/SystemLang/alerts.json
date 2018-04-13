@@ -1,6 +1,8 @@
 {
-  "HELLO":  "Hello! I'm BroBot. To learn how I work type `{0}help`.",
+  "HELLO": "Hello! I'm BroBot. To learn how I work type `{0}help`.",
   "ECHO_MESSAGE_&username": "Message by {0}",
   "PICK_MESSAGE_&username": "Choice by {0}",
-  "HELP":  "I'm BroBot. The helpful Bro.\nBasic Commands\nHello: Make me say hello!\nHelp: You've found that one.\nEcho: I'm a copy cat. Remind yourself of growing up with a sibling.\n"  
+  "HELP": "I'm BroBot. The helpful Bro.",
+  "HELP_MISC": "Hello: Make me say hello!\nHelp: You've found that one.\nEcho: You say, I say.\nPick: Picks a random option. Options look like this - Option1|Option2|...",
+  "HELP_BRO": "BroBot: What is a BroBot?\nOwner: Find out who this bot belongs to.\nBetterDiscord: Vastly improve your discord experience.\nHighnoon: It's highnoon somewhere.\nPileOn: Remember Grim Patron Warrior?\nFuckTheMods: We love you, really."
 }
