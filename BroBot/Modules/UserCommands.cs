@@ -7,14 +7,19 @@ using BroBot.Utils;
 using BroBot.Core.Users;
 using Discord;
 using Discord.Commands;
-using Discord.WebSocket;
 
 namespace BroBot.Modules
 {
     public class UserCommands : ModuleBase<SocketCommandContext>
     {
+        /// <summary>
+        /// Add points to a user
+        /// </summary>
+        /// <param name="xp">The points to add</param>
+        /// <param name="args">mentioned name</param>
+        /// <returns>Task</returns>
         [Command("givePoints")]
-        [RequireUserPermission(GuildPermission.Administrator)]
+        [RequireUserPermission(GuildPermission.ChangeNickname)]
         public async Task GiveUserPoints(ulong xp, [Remainder] string args = "")
         {
             var mentionedUser = Context.Message.MentionedUsers.FirstOrDefault();
@@ -30,6 +35,10 @@ namespace BroBot.Modules
             await Context.Channel.SendMessageAsync("", false, embed);
         }
 
+        /// <summary>
+        /// Review the stats of a User.
+        /// </summary>
+        /// <returns>Task</returns>
         [Command("stats")]
         public async Task UserStats()
         {
