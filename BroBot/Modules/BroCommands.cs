@@ -23,7 +23,7 @@ namespace BroBot.Modules
         public async Task Owner()
         {
             var embed = new EmbedBuilder();
-            embed.WithTitle("Hail to the King, Baby.");
+            embed.WithTitle("BroBots Back");
             embed.WithDescription(Utilities.GetFormattedBroCommand("OWNER"));
             embed.WithColor(new Color(0, 255, 0));
 
@@ -59,6 +59,34 @@ namespace BroBot.Modules
             embed.WithColor(new Color(0, 255, 0));
 
             await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        /// <summary>
+        /// Sends a message with Highnoon on it.
+        /// </summary>
+        /// <returns></returns>
+        [Command("highnoon")]
+        public async Task Highnoon()
+        {
+            var embed = new EmbedBuilder();
+            embed.WithTitle("It's hiiiiiighnoon");
+            embed.WithDescription(Utilities.GetFormattedBroCommand("HIGHNOON"));
+            embed.WithColor(new Color(0, 255, 0));
+            embed.WithImageUrl("http://0.media.dorkly.cvcdn.com/28/83/3eff0977d0aeb25bc42da76e6fa3484b.jpg");
+
+            await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        [Command("pileon")]
+        public async Task PileOn()
+        {
+            var herePing = Utilities.GetFormattedBroCommand("HERE_PING");
+            var embed = new EmbedBuilder();
+            embed.WithTitle("Pile On!");
+            embed.WithColor(new Color(0, 255, 0));
+            embed.WithImageUrl("http://i0.kym-cdn.com/photos/images/original/000/944/543/af7.png");
+
+            await Context.Channel.SendMessageAsync(herePing, false, embed);
         }
     }
 }

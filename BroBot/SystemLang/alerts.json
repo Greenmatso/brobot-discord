@@ -2,5 +2,5 @@
   "HELLO":  "Hello! I'm BroBot. To learn how I work type `{0}help`.",
   "ECHO_MESSAGE_&username": "Message by {0}",
   "PICK_MESSAGE_&username": "Choice by {0}",
-  "HELP":  "I'm BroBot. The helpful Bro.\nBasic Commands\n  Hello: Make me say hello!\n  Help: You've found that one.\n  Echo: I'm a copy cat. Remind yourself of growing up with a sibling.\n"  
+  "HELP":  "I'm BroBot. The helpful Bro.\nBasic Commands\nHello: Make me say hello!\nHelp: You've found that one.\nEcho: I'm a copy cat. Remind yourself of growing up with a sibling.\n"  
 }
