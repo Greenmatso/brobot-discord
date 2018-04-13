@@ -34,15 +34,42 @@ namespace BroBot.Core.Users
             return GetOrCreateUser(user.Id);
         }
 
-        #region Private methods
+        /// <summary>
+        /// Updates the level of a User if the XP is greater than the XP required.
+        /// </summary>
+        /// <param name="user">The user to update the level of</param>
+        /// <returns>The user with updated level</returns>
+        public static User UpdateUserLevel(User user)
+        {
+            ulong levelExperience = 0;
+
+            var experience = user.ExperiencePoints;
+            var level = user.UserLevel;
+
+            for (ulong i = 1; i <= level + 1; i++)
+            {
+                levelExperience += 100 + (55 + (10 * (i - 1)));
+                i++;
+            }
+
+            if (experience >= levelExperience)
+            {
+                user.UserLevel = level + 1;
+            }
+
+            SaveAccounts();
+            return user;
+        }
 
         /// <summary>
         /// Saves users to the user list
         /// </summary>
-        private static void SaveAccounts()
+        public static void SaveAccounts()
         {
             JsonStorage.SaveUsers(users, userFile);
         }
+
+        #region Private methods
 
         /// <summary>
         /// Gets a user or creates a user if it doesn't exist
@@ -71,7 +98,8 @@ namespace BroBot.Core.Users
             {
                 UserId = id,
                 UserPoints = 0,
-                ExperiencePoints = 0
+                ExperiencePoints = 0,
+                UserLevel = 0
             };
             users.Add(newUser);
             SaveAccounts();

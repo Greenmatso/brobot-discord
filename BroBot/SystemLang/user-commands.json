@@ -1,3 +1,4 @@
 ﻿{
-  "STATS_&username": "User Points: {0}\nExperience Points: {1}" 
+  "STATS_&username": "User Points: {0}\nExperience Points: {1}",
+  "ADD_POINTS_&xp_&username":  "Successfully gave {0} points to {1}. Congratulations!" 
 }
