@@ -22,6 +22,15 @@ namespace BroBot.Modules
         [RequireUserPermission(GuildPermission.ChangeNickname)]
         public async Task GiveUserPoints(ulong xp, [Remainder] string args = "")
         {
+            if (xp > 10000)
+            {
+                var error = new EmbedBuilder();
+                error.WithTitle("ABORT MISSION");
+                error.WithDescription("Your point value was too powerful!");
+                error.WithColor(new Color(255, 0, 0));
+                await Context.Channel.SendMessageAsync("", false,error);
+                return;
+            }
             var mentionedUser = Context.Message.MentionedUsers.FirstOrDefault();
             var user = UserService.GetUser(mentionedUser);
             user.UserPoints += xp;

@@ -24,7 +24,7 @@ namespace BroBot.Core
         /// <param name="filePath"></param>
         public static void SaveUsers(IEnumerable<User> users, string filePath)
         {
-            string json = JsonConvert.SerializeObject(users);
+            string json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
 
