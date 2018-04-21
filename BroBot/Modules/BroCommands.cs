@@ -94,5 +94,25 @@ namespace BroBot.Modules
         {
             await Context.Channel.SendMessageAsync("https://i.imgur.com/tHAKqha.gifv");
         }
+
+        [Command("givenickalcohol")]
+        public async Task Alcohol(uint alc)
+        {
+            var embed = new EmbedBuilder();
+            embed.WithTitle("Here you go champ!");
+            embed.WithDescription($"Gave Nick {alc} Alcohol");
+            embed.WithColor(new Color(0, 255, 0));
+            await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        [Command("minecraft")]
+        public async Task Minecraft()
+        {
+            var embed = new EmbedBuilder();
+            embed.WithTitle("Minecraft Servers!");
+            embed.WithDescription(Utilities.GetFormattedBroCommand("MINECRAFT"));
+            embed.WithColor(new Color(0, 255, 0));
+            await Context.Channel.SendMessageAsync("", false, embed);
+        }
     }
 }
