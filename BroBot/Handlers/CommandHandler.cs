@@ -6,6 +6,9 @@ using Discord.WebSocket;
 
 namespace BroBot.Handlers
 {
+    /// <summary>
+    /// Handles commands read in from Discord
+    /// </summary>
     class CommandHandler
     {
         DiscordSocketClient _client;
