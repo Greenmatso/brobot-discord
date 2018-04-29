@@ -4,5 +4,6 @@
   "PICK_MESSAGE_&username": "Choice by {0}",
   "HELP": "I'm BroBot. The helpful Bro.",
   "HELP_MISC": "Hello: Make me say hello!\nHelp: You've found that one.\nEcho: You say, I say.\nPick: Picks a random option. Options look like this - Option1|Option2|...",
-  "HELP_BRO": "BroBot: What is a BroBot?\nOwner: Find out who this bot belongs to.\nBetterDiscord: Vastly improve your discord experience.\nHighnoon: It's highnoon somewhere.\nPileOn: Remember Grim Patron Warrior?\nFuckTheMods: We love you, really."
+  "HELP_BRO": "BroBot: What is a BroBot?\nOwner: Find out who this bot belongs to.\nBetterDiscord: Vastly improve your discord experience.\nHighnoon: It's highnoon somewhere.\nPileOn: Remember Grim Patron Warrior?\nFuckTheMods: We love you, really.",
+  "LEVEL_UP":  "Congratulations! You leveled up to level {0}." 
 }

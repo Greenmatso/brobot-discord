@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using BroBot.Core.LevelingSystem;
 using Discord.Commands;
 using Discord.WebSocket;
 
@@ -31,6 +32,14 @@ namespace BroBot.Handlers
             }
 
             var context = new SocketCommandContext(_client, userMessage);
+            if (context.User.IsBot)
+            {
+                return;
+            }
+
+            //Leveling up
+            LevelUtil.AddExperienceFromMessage((SocketGuildUser)context.User, (SocketTextChannel)context.Channel);
+
             int argPos = 0;
             if (userMessage.HasStringPrefix(Config.bot.cmdPrefix, ref argPos) ||
                 userMessage.HasMentionPrefix(_client.CurrentUser, ref argPos))
