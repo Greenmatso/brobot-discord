@@ -141,7 +141,9 @@
     <Compile Include="Core\Users\User.cs" />
     <Compile Include="Core\Users\UserService.cs" />
     <Compile Include="DataStorage.cs" />
+    <Compile Include="Handlers\MemeHandler.cs" />
     <Compile Include="Modules\BroCommands.cs" />
+    <Compile Include="Modules\MemeCommands.cs" />
     <Compile Include="Modules\Misc.cs" />
     <Compile Include="Modules\UserCommands.cs" />
     <Compile Include="Program.cs" />
