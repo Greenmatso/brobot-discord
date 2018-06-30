@@ -8,12 +8,12 @@ namespace BroBot.Handlers
     class MemeHandler
     {
         private const string AccessKey = "access-code-here";
-        private const string UriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=";
-        private const string SearchPrefix = "meme+";
+        private const string UriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=meme+{0}&offset={1}";
 
         public static string SearchMemeOnBing(string query)
         {
-            var uriQuery = UriBase + SearchPrefix + Uri.EscapeDataString(query);
+            var offset = GenerateOffset();
+            var uriQuery =String.Format(UriBase, Uri.EscapeDataString(query), offset);
 
             WebRequest req = HttpWebRequest.Create(uriQuery);
             req.Headers["Ocp-Apim-Subscription-Key"] = AccessKey;
@@ -24,6 +24,11 @@ namespace BroBot.Handlers
             JObject jsonObject = JObject.Parse(json);
 
             return (string)jsonObject["value"][0]["contentUrl"];
+        }
+
+        private static int GenerateOffset()
+        {
+            return new Random().Next(0, 15);
         }
     }
 }
