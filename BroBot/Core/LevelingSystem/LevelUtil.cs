@@ -16,10 +16,20 @@ namespace BroBot.Core.LevelingSystem
         {
             // if timeout, ignore
             var user = UserService.GetUser(socketUser);
+
+            if (user.XpTimeout.AddMinutes(1.0) > DateTime.UtcNow)
+            {
+                return;
+            }
+
+            //Set timeout time
+            user.XpTimeout = DateTime.UtcNow;
+
             var oldLevel = user.UserLevel;
             var r = new Random();
             user.ExperiencePoints += (ulong)r.Next(15, 25);
             UserService.UpdateUserLevel(user);
+
 
             if (oldLevel != user.UserLevel)
             {
