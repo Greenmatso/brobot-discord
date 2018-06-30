@@ -31,7 +31,7 @@ namespace BroBot.Core.Users
         /// <returns>a User</returns>
         public static User GetUser(SocketUser user)
         {
-            return GetOrCreateUser(user.Id);
+            return GetOrCreateUser(user.Id, user.Username);
         }
 
         /// <summary>
@@ -41,16 +41,17 @@ namespace BroBot.Core.Users
         /// <returns>The user with updated level</returns>
         public static User UpdateUserLevel(User user)
         {
+            const ulong baseExp = 155;
             ulong levelExperience = 0;
 
             var experience = user.ExperiencePoints;
             var level = user.UserLevel;
 
-            for (ulong i = 1; i <= level + 1; i++)
+            for (ulong i = 0; i <= level; i++)
             {
-                levelExperience += 100 + (55 + (10 * (i - 1)));
-                i++;
+                levelExperience += baseExp + (10 * i);
             }
+
 
             if (experience >= levelExperience)
             {
@@ -76,13 +77,13 @@ namespace BroBot.Core.Users
         /// </summary>
         /// <param name="id">The ID of the user to retrieve</param>
         /// <returns>The User</returns>
-        private static User GetOrCreateUser(ulong id)
+        private static User GetOrCreateUser(ulong id, string username)
         {
             var result = from a in users where a.UserId == id select a;
             var user = result.FirstOrDefault();
             if (user == null)
             {
-                user = CreateUserAccount(id);
+                user = CreateUserAccount(id, username);
             }
             return user;
         }
@@ -92,10 +93,11 @@ namespace BroBot.Core.Users
         /// </summary>
         /// <param name="id">The ID of the user to create</param>
         /// <returns>The new User</returns>
-        private static User CreateUserAccount(ulong id)
+        private static User CreateUserAccount(ulong id, string username)
         {
             var newUser = new User
             {
+                Username = username,
                 UserId = id,
                 UserPoints = 0,
                 ExperiencePoints = 0,

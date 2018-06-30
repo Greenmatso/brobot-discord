@@ -32,6 +32,8 @@ namespace BroBot.Handlers
             }
 
             var context = new SocketCommandContext(_client, userMessage);
+
+            // Bot messages dont count
             if (context.User.IsBot)
             {
                 return;

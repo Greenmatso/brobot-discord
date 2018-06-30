@@ -9,6 +9,9 @@ namespace BroBot.Core.Users
     //A member of the server that has existed/interacted with the server
     public class User
     {
+        //Username
+        public string Username { get; set; }
+
         //Unique ID of a user
         public ulong UserId { get; set; }
 
@@ -20,5 +23,8 @@ namespace BroBot.Core.Users
 
         //Level of the User
         public ulong UserLevel { get; set; }
+
+        //Message XP gain timeout
+        public DateTime XpTimeout { get; set; }
     }
 }
