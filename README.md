@@ -12,5 +12,10 @@ _Bro Commands_
 * >owner => reveals the true owner of the Bot.
 * >betterdiscord => links to Better Discord at https://betterdiscord.net.
 * >brobot => gives dev information on BroBot.
+* >highnoon => its highnoon somewhere.
+* >pileon => summon your friends.
+
+_Meme Commands_
+* >meme {query} => searches for a meme based on the given query. (Uses Bing Image Search)
 
 DISCLAIMER: BroBot is currently under development.
