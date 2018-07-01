@@ -45,6 +45,7 @@ namespace BroBot
         {
             public string token;
             public string cmdPrefix;
+            public string bingToken;
         }
     }
 }

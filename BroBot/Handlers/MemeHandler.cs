@@ -7,13 +7,13 @@ namespace BroBot.Handlers
 {
     class MemeHandler
     {
-        private const string AccessKey = "access-code-here";
         private const string UriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=meme+{0}&offset={1}";
+        private static readonly string AccessKey = Config.bot.bingToken;
 
         public static string SearchMemeOnBing(string query)
         {
             var offset = GenerateOffset();
-            var uriQuery =String.Format(UriBase, Uri.EscapeDataString(query), offset);
+            var uriQuery = String.Format(UriBase, Uri.EscapeDataString(query), offset);
 
             WebRequest req = HttpWebRequest.Create(uriQuery);
             req.Headers["Ocp-Apim-Subscription-Key"] = AccessKey;
